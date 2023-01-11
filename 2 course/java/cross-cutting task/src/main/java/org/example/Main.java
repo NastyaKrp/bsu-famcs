@@ -4,17 +4,25 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
+
+
 public class Main {
-    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, TransformerException {
+
+
+    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, TransformerException, ScriptException {
         System.out.println("Enter type of input file");
         Scanner sc = new Scanner(System.in);
         String in_type = sc.nextLine();
@@ -23,36 +31,33 @@ public class Main {
         System.out.println(in_type);
         System.out.println(in_type2);
 
-
+        
 
         //проверка чтения  и запись txt - работает
-        /*ReadTXT read = new ReadTXT();
-        List<String> info = read.ReadTXT("input.txt");
-        for(String s: info)
+        /*List<String> info1 = TXT.ReadTXT("input.txt");
+        for(String s: info1)
         {
             System.out.println(s);
         }
-        read.WriteTXT(info);
+        TXT.WriteTXT(Sol.Sol_M(info1));
         */
 
         //проверка чтения и вывод xml - работает
-        /*ReadXML read = new ReadXML();
-        List<String> info = read.ReadXML("input.xml");
-        for(String s: info)
+        /*List<String> info2 = XML.ReadXML("input.xml");
+        for(String s: info2)
         {
             System.out.println(s);
         }
-        read.WriteXML(info, "output.xml");
+        XML.WriteXML(Sol.Sol_M(info2), "output.xml");
         */
 
         //проверка чтение и запись json - работает
-        /*ReadJSON read = new ReadJSON();
-        List<String> info = read.ReadJSON("input.json");
-        for(String s: info)
+        /*List<String> info3 = JSON.ReadJSON("input.json");
+        for(String s: info3)
         {
             System.out.println(s);
         }
-        read.WriteJSON(info);*/
+        JSON.WriteJSON(Sol.Sol_M(info3));*/
 
     }
 }
