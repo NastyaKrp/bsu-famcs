@@ -20,17 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class XML {
-    public static Node getLanguage(Document doc, String s, String ans) {
+    public static Node getLanguage(Document doc, String s) {
         Element line = doc.createElement("Line");
-        line.appendChild(getLanguageElements(doc, line, "Task", s));
-        line.appendChild(getLanguageElements(doc, line, "Answer", ans));
+        line.appendChild(doc.createTextNode(s));
         return line;
-    }
-
-    static Node getLanguageElements(Document doc, Element element, String name, String value) {
-        Element node = doc.createElement(name);
-        node.appendChild(doc.createTextNode(value));
-        return node;
     }
 
     public static List<String> ReadXML(String file) throws ParserConfigurationException, IOException, SAXException {
@@ -51,26 +44,23 @@ public class XML {
         return listXML;
     }
 
-    public static void WriteXML(List<Sol> info, String file) throws ParserConfigurationException, TransformerException {
+    public static void WriteXML(List<String> info, String file) throws ParserConfigurationException, TransformerException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder;
         builder = factory.newDocumentBuilder();
         Document document2 = builder.newDocument();
-        Element element = document2.createElementNS("math", "answer");
+        Element element = document2.createElementNS("out", "Info");
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transform = transformerFactory.newTransformer();
         transform.setOutputProperty(OutputKeys.INDENT, "yes");
         DOMSource source = new DOMSource(document2);
         StreamResult result = new StreamResult(new File(file));
-        String answerXML = String.valueOf(info.get(0).ans);
-        String task = info.get(0).task;
+        String answerXML = info.get(0);
         document2.appendChild(element);
-        element.appendChild(XML.getLanguage(document2, task, answerXML));
+        element.appendChild(XML.getLanguage(document2, answerXML));
         for (int i = 1; i <= info.size() - 1; i++) {
-                answerXML = String.valueOf(info.get(i).ans);
-                task = info.get(i).task;
-                element.appendChild(XML.getLanguage(document2, task, answerXML));
-
+                answerXML = info.get(i);
+                element.appendChild(XML.getLanguage(document2, answerXML));
         }
         transform.transform(source, result);
     }

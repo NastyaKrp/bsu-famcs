@@ -29,21 +29,19 @@ public class JSON {
         return info;
     }
 
-    public static void WriteJSON(List<Sol> p) throws IOException {
+    public static void WriteJSON(List<String> p) throws IOException {
         FileWriter writer = new FileWriter("out_file.json");
         JSONArray obj = new JSONArray();
         writer.write("[ ");
         for (int i = 0; i < p.size(); ++i) {
             if (i + 1 == p.size()) {
                 JSONObject object = new JSONObject();
-                object.put("Task", p.get(i).task);
-                object.put("Answer", p.get(i).ans);
+                object.put("line", p.get(i));
                 writer.write(object.toJSONString());
                 break;
             }
             JSONObject object = new JSONObject();
-            object.put("Task", p.get(i).task);
-            object.put("Answer", p.get(i).ans);
+            object.put("line", p.get(i));
             writer.write(object.toJSONString() + ",\n");
         }
         writer.write(" ]");

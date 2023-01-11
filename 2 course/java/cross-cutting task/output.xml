@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<answer xmlns="math">
-    <Line>
-        <Task>2+3</Task>
-        <Answer>5</Answer>
-    </Line>
-    <Line>
-        <Task>4-2</Task>
-        <Answer>2</Answer>
-    </Line>
-    <Line>
-        <Task>13*5</Task>
-        <Answer>65</Answer>
-    </Line>
-</answer>
+<Info xmlns="out">
+    <Line>hEllo</Line>
+    <Line>5</Line>
+    <Line>sdjf</Line>
+    <Line>2</Line>
+    <Line>65</Line>
+    <Line>sfkdfnjs</Line>
+</Info>

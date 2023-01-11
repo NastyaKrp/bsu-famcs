@@ -23,41 +23,39 @@ public class Main {
 
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, TransformerException, ScriptException {
-        System.out.println("Enter type of input file");
+        /*System.out.println("Enter type of input file");
         Scanner sc = new Scanner(System.in);
         String in_type = sc.nextLine();
         System.out.println("Type 1 if file is archived\nType 2 if file is encrypted\nType 3 if file is archived and then encrypted\nType 4 if file is encrypted and then archived\nType 0 if none of those");
         Integer in_type2 = sc.nextInt();
         System.out.println(in_type);
-        System.out.println(in_type2);
+        System.out.println(in_type2);*/
 
-        
+
 
         //проверка чтения  и запись txt - работает
-        /*List<String> info1 = TXT.ReadTXT("input.txt");
+        List<String> info1 = TXT.ReadTXT("input.txt");
         for(String s: info1)
         {
             System.out.println(s);
         }
         TXT.WriteTXT(Sol.Sol_M(info1));
-        */
 
         //проверка чтения и вывод xml - работает
-        /*List<String> info2 = XML.ReadXML("input.xml");
+        List<String> info2 = XML.ReadXML("input.xml");
         for(String s: info2)
         {
             System.out.println(s);
         }
         XML.WriteXML(Sol.Sol_M(info2), "output.xml");
-        */
 
         //проверка чтение и запись json - работает
-        /*List<String> info3 = JSON.ReadJSON("input.json");
+        List<String> info3 = JSON.ReadJSON("input.json");
         for(String s: info3)
         {
             System.out.println(s);
         }
-        JSON.WriteJSON(Sol.Sol_M(info3));*/
+        JSON.WriteJSON(Sol.Sol_M(info3));
 
     }
 }

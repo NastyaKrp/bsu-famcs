@@ -22,13 +22,13 @@ public class TXT {
         return info;
     }
 
-    public static void WriteTXT(List<Sol> out)
+    public static void WriteTXT(List<String> out)
     {
         try(FileWriter f2 = new FileWriter("output.txt"))
         {
-            for(Sol s: out)
+            for(String s: out)
             {
-                f2.write(s.task + " = " + s.ans + "\n");
+                f2.write(s + "\n");
 
             }
             f2.close();

@@ -19,8 +19,8 @@ public class Sol {
         this.ans = a;
     }
 
-    public static List<Sol> Sol_M(List<String> info) throws ScriptException {
-        List<Sol> sol = new ArrayList<>();
+    public static List<String> Sol_M(List<String> info) throws ScriptException {
+        List<String> sol = new ArrayList<>();
         //String pattern = [0-9]+([\+\-\*\/][0-9])*
         Pattern pattern = Pattern.compile("[0-9]+([\\+\\-\\*\\/][0-9])*");
         for(String s: info)
@@ -28,7 +28,11 @@ public class Sol {
             Matcher matcher = pattern.matcher(s);
             if (matcher.find())
             {
-                sol.add(new Sol(s, eval(s)));
+                sol.add(String.valueOf(eval(s)));
+            }
+            else
+            {
+                sol.add(s);
             }
         }
         return sol;
