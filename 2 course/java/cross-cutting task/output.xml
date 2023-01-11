@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<answer xmlns="math">
+    <Line>
+        <Task>hEllo</Task>
+        <Answer>answer 0</Answer>
+    </Line>
+    <Line>
+        <Task>2+3</Task>
+        <Answer>answer 1</Answer>
+    </Line>
+    <Line>
+        <Task>sdjf</Task>
+        <Answer>answer 2</Answer>
+    </Line>
+    <Line>
+        <Task>4-2</Task>
+        <Answer>answer 3</Answer>
+    </Line>
+    <Line>
+        <Task>13*5</Task>
+        <Answer>answer 4</Answer>
+    </Line>
+    <Line>
+        <Task>sfkdfnjs</Task>
+        <Answer>answer 5</Answer>
+    </Line>
+</answer>
