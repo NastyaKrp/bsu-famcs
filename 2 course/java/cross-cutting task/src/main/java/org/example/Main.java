@@ -24,6 +24,7 @@ public class Main {
         System.out.println(in_type2);
 
 
+
         //проверка чтения  и запись txt - работает
         /*ReadTXT read = new ReadTXT();
         List<String> info = read.ReadTXT("input.txt");
@@ -43,6 +44,15 @@ public class Main {
         }
         read.WriteXML(info, "output.xml");
         */
+
+        //проверка чтение и запись json - работает
+        /*ReadJSON read = new ReadJSON();
+        List<String> info = read.ReadJSON("input.json");
+        for(String s: info)
+        {
+            System.out.println(s);
+        }
+        read.WriteJSON(info);*/
 
     }
 }
