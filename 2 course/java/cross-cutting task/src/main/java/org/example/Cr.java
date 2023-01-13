@@ -30,4 +30,16 @@ public class Cr{
         fileOutputStream.close();
         return key;
     }
+
+    public static Key Encr(String path, String res_name) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IOException, IllegalBlockSizeException, BadPaddingException {
+        Cipher cipher_encrypted = Cipher.getInstance("AES");
+        KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+        Key key = keyGenerator.generateKey();
+        cipher_encrypted.init(Cipher.ENCRYPT_MODE, key);
+        byte[] cipherText = cipher_encrypted.doFinal(new FileInputStream(path).readAllBytes());
+        FileOutputStream fileOutputStream = new FileOutputStream(res_name);
+        fileOutputStream.write(cipherText);
+        fileOutputStream.close();
+        return key;
+    }
 }

@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.builders.Director;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
@@ -29,11 +30,13 @@ public class Main {
 
         Director director = new Director();
         Key key = Cr.Encr("input.json"); // для 2 и 4 случаев
+
+
         //Zip.Z("eninput.json", "eninput.zip"); // - для 4 случая с zip
         //Zip.Z("input.xml", "input.zip"); // - для 1 случая
 
-        //Zip.Z("input.xml", "input2.zip"); // для 3 случая с zip
-        //Key key2 = Cr.Encr("input2.zip"); // для 3 случая с zip
+        /*Zip.Z("input.xml", "input2.zip"); // для 3 случая с zip
+        Key key2 = Cr.Encr("input2.zip"); // для 3 случая с zip*/
 
 
         /*List<String> k = new ArrayList<>();

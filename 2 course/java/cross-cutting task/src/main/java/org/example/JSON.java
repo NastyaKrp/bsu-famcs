@@ -47,4 +47,23 @@ public class JSON {
         writer.write(" ]");
         writer.flush();
     }
+
+    public static void WriteJSON(List<String> p, String file) throws IOException {
+        FileWriter writer = new FileWriter(file);
+        JSONArray obj = new JSONArray();
+        writer.write("[ ");
+        for (int i = 0; i < p.size(); ++i) {
+            if (i + 1 == p.size()) {
+                JSONObject object = new JSONObject();
+                object.put("line", p.get(i));
+                writer.write(object.toJSONString());
+                break;
+            }
+            JSONObject object = new JSONObject();
+            object.put("line", p.get(i));
+            writer.write(object.toJSONString() + ",\n");
+        }
+        writer.write(" ]");
+        writer.flush();
+    }
 }

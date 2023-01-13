@@ -38,4 +38,21 @@ public class TXT {
             System.out.println(ex.getMessage());
         }
     }
+
+    public static void WriteTXT(List<String> out, String name)
+    {
+        try(FileWriter f2 = new FileWriter(name))
+        {
+            for(String s: out)
+            {
+                f2.write(s + "\n");
+
+            }
+            f2.close();
+        }
+        catch(IOException ex)
+        {
+            System.out.println(ex.getMessage());
+        }
+    }
 }
