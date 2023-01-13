@@ -38,7 +38,6 @@ public class Director {
                 director.construct0(in_type, out_type, in_path);
                 break;
             case 1:
-
                 director.construct1(in_type, out_type, in_path);
                 break;
             case 2:
@@ -83,21 +82,32 @@ public class Director {
     }
 
     public void construct1(String in, String out, String path_in) throws ParserConfigurationException, IOException, SAXException, ScriptException, TransformerException {
-        System.out.println("Enter path to zip file");
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter type of archive: zip or jar");
+        String type = sc.nextLine();
+        System.out.println("Enter path to archive");
         String zName = sc.nextLine();
         List<String> info = new ArrayList<>();
-        Zip.Arch(zName);
+        String add = "new";
+        if(type == "zip")
+        {
+            Zip.Arch(zName);
+        }
+        else
+        {
+            add = "j" + add;
+            Jar.exJAR(zName);
+        }
         switch (in)
         {
             case "txt":
-                info = TXT.ReadTXT("new" + path_in);
+                info = TXT.ReadTXT(add + path_in);
                 break;
             case "xml":
-                info = XML.ReadXML("new" + path_in);
+                info = XML.ReadXML(add + path_in);
                 break;
             case "json":
-                info = JSON.ReadJSON("new" + path_in);
+                info = JSON.ReadJSON(add + path_in);
                 break;
         }
         info = Sol.Sol_M(info);
@@ -147,22 +157,33 @@ public class Director {
     }
 
     public void construct3(String in, String out, Key key, String path_in) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, IOException, BadPaddingException, InvalidKeyException, ParserConfigurationException, SAXException, ScriptException, TransformerException {
-        System.out.println("Enter path to zip file");
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter type of archive: zip or jar");
+        String type = sc.nextLine();
+        System.out.println("Enter path to archive");
         String zName = sc.nextLine();
         List<String> info = new ArrayList<>();
+        String add = "new";
         Cr.DeEncr(zName, key);
-        Zip.Arch("de" + zName);
+        if(type == "zip")
+        {
+            Zip.Arch("de" + zName);
+        }
+        else
+        {
+            add = "j" + add;
+            Jar.exJAR("de" + zName);
+        }
         switch (in)
         {
             case "txt":
-                info = TXT.ReadTXT("new" + path_in);
+                info = TXT.ReadTXT(add + path_in);
                 break;
             case "xml":
-                info = XML.ReadXML("new" + path_in);
+                info = XML.ReadXML(add + path_in);
                 break;
             case "json":
-                info = JSON.ReadJSON("new" + path_in);
+                info = JSON.ReadJSON(add + path_in);
                 break;
         }
         info = Sol.Sol_M(info);
@@ -181,22 +202,34 @@ public class Director {
     }
 
     public void construct4(String in, String out, Key key, String path_in) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, IOException, BadPaddingException, InvalidKeyException, ParserConfigurationException, SAXException, ScriptException, TransformerException {
-        System.out.println("Enter path to zip file");
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter type of archive: zip or jar");
+        String type = sc.nextLine();
+        System.out.println("Enter path to archive");
         String zName = sc.nextLine();
-        Zip.Arch(zName);
+        String add = "new";
+        if(type == "zip")
+        {
+            Zip.Arch(zName);
+        }
+        else
+        {
+            add = "j" + add;
+            Jar.exJAR(zName);
+        }
         List<String> info = new ArrayList<>();
-        Cr.DeEncr("new" + path_in, key);
+        Cr.DeEncr(add + path_in, key);
+        add = "de" + add;
         switch (in)
         {
             case "txt":
-                info = TXT.ReadTXT("denew" + path_in);
+                info = TXT.ReadTXT(add + path_in);
                 break;
             case "xml":
-                info = XML.ReadXML("denew" + path_in);
+                info = XML.ReadXML(add + path_in);
                 break;
             case "json":
-                info = JSON.ReadJSON("denew" + path_in);
+                info = JSON.ReadJSON(add + path_in);
                 break;
         }
         info = Sol.Sol_M(info);
